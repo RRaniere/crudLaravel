@@ -1,0 +1,30 @@
+mat-sidenav-container{
+  height: calc(205vh - 115vh);
+
+}
+
+mat-toolbar { 
+  background-color: #1A242E;
+}
+
+mat-sidenav{
+  width: 200px;
+  background-color: #2E4051;
+}
+
+a{
+  color: #fff;
+}
+
+#dashboard,#cadastro{
+  border-top: 1px solid #263644;
+}
+
+mat-list-item{
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+span{
+  padding-left: 10px;
+}
