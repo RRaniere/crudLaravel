@@ -1,0 +1,58 @@
+<div class="container-fluid card p-4 m-2">
+  <div class="row">
+    <mat-icon>home</mat-icon>
+    <p class="titulo">Dashboard</p>
+  </div>
+  <div class="row">
+    <span class="p-1 sub-titulo">>> Loja do zé / <a routerLink="/dashboard">Dashboard</a> / <a routerLink="/dashboard/cadastro-cliente">Cadastro Cliente</a></span>
+  </div>
+</div>
+
+
+<div class=" container m-1" >
+
+<form [formGroup] = "cadastroForm" (ngSubmit)="submitForm()">
+  
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" formControlName ="nome" placeholder="Digite o nome do cliente">
+        <span class="alert"
+     *ngIf="cadastroForm.get('nome')?.errors && (
+      cadastroForm.get('nome')?.touched || cadastroForm.get('nome')?.dirty)">Favor adicionar o nome</span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="celular">Celular</label>
+        <input type="tel" class="form-control" id="celular" formControlName="celular"placeholder="Celular com DDD">
+        <span class="alert"
+        *ngIf="cadastroForm.get('celular')?.errors && (
+         cadastroForm.get('celular')?.touched || cadastroForm.get('celular')?.dirty)">Favor adicionar um numero de telefone</span>
+      </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="sexo">Sexo</label>
+            <select id="sexo" class="form-control" formControlName ="sexo"  >
+              <option selected>Sexo cliente</option>
+              <option *ngFor = "let op of sexos ">{{ op.sexo}}</option>
+            </select>
+          </div>
+       <div class="form-group col-md-2">
+          <label for="idade">Idade</label>
+          <input type="text" class="form-control" id="idade" formControlName ="idade" >
+          <span class="alert"
+          *ngIf="cadastroForm.get('idade')?.errors && (
+           cadastroForm.get('idade')?.touched || cadastroForm.get('idade')?.dirty)">Favor adicionar uma idade</span>
+       </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="cadastroForm.invalid" onclick= "window.alert('cliente cadastrado com sucesso')">Cadastrar cliente</button>
+
+
+
+</form>
+</div>

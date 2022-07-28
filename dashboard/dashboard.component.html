@@ -1,0 +1,113 @@
+<div class="container-fluid card p-4 m-2">
+  <div class="row">
+    <mat-icon>home</mat-icon>
+    <p class="titulo">Dashboard</p>
+  </div>
+  <div class="row">
+    <span class="p-1 sub-titulo">>> Loja do zé / <a routerLink="/dashboard">Dashboard</a></span>
+  </div>
+</div>
+
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-4">
+      <mat-card class="example-card">
+        <mat-card-header class="verde">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title><i class="fa-solid fa-earth-americas p-2"></i>SEUS CLIENTES:</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="container usuarios m-3 ml-5" style="font-size: 30px;">
+            <i class="fa-solid fa-user-group"></i> {{ usuarios }}
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="container">
+          <button mat-button class="button" routerLink="/dashboard/tabela-clientes"><i class="fa-solid fa-arrows-to-circle"></i>  VEJA SEUS CLIENTES!</button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+
+    <div class="col-md-4">
+      <mat-card class="example-card">
+        <mat-card-header class="amarelo">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>
+            <i class="fa-solid fa-chart-line p-2"></i>MEDIAS DAS IDADES:
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="container usuariosIdade" style="font-size: 50px;">
+            <i class="fa-solid fa-chart-line"></i>{{ mediaIdade }}
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+    <div class="col-md-4">
+      <mat-card class="example-card">
+        <mat-card-header class="vermelho">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title> <i class="fa-solid fa-chart-line p-2"></i>GRAFICO DE GENERO:</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+         
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header class="verde">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title><i class="fa-solid fa-user-plus p-2"></i>ULTIMOS CLIENTES CADASTRADOS:</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="sexo">
+            <th mat-header-cell *matHeaderCellDef> Sexo </th>
+            <td mat-cell *matCellDef="let element"> {{element.sexo}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="idade">
+            <th mat-header-cell *matHeaderCellDef> Idade </th>
+            <td mat-cell *matCellDef="let element"> {{element.idade}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+        </table>
+
+      </mat-card-content>
+     
+      </mat-card>
+    </div>
+  </div>
+</div>
+
